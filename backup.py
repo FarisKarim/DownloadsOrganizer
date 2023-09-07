@@ -9,7 +9,7 @@ def backup_downloads():
         shutil.copytree(DOWNLOADS_PATH, BACKUP_PATH)
         print(f"Backup completed to: {BACKUP_PATH}")
     else:
-        print(f"Backup directory {BACKUP_PATH} already exists. Consider renaming or deleting it before creating a new backup.")
+        print(f"Backup directory {BACKUP_PATH} already exists.")
 
 if __name__ == "__main__":
     backup_downloads()
