@@ -34,13 +34,13 @@ def move_file(filename, folder_name):
     return original_location, new_location
 
 def organize_downloads():
-    backup_choice = input("Would you like to backup your Downloads folder before organizing? (y/n): ").lower()
+    backup_choice = input("\nWould you like to backup your Downloads folder before organizing? (y/n): ").lower()
     if backup_choice == 'y':
         backup_downloads()
     elif backup_choice == 'n':
-        print('Okay, not backing up.')
+        print('\nOkay, not backing up.')
     else:
-        print('Invalid choice, not backing up. You can undo by running the program again and choosing "undo".')
+        print('\nInvalid choice, not backing up. You can undo by running the program again and choosing "undo".')
 
     moves_made = []
     for filename in os.listdir(DOWNLOADS_PATH):
@@ -57,7 +57,7 @@ def organize_downloads():
     
     with open(MOVES_FILE, 'w') as f:
         json.dump(moves_made, f)
-    print("Downloads folder organized successfully!")
+    print("\nDownloads folder organized successfully!")
 
 def undo_last_moves():
     try:
@@ -73,7 +73,7 @@ def undo_last_moves():
         print("No moves to undo!")
 
 if __name__ == "__main__":
-    print('Hello, welcome to Downloads File Organizer! \nThis was a project built entirely using Python in order to help familarize myself with the os module.\nEnjoy!\n')
+    print('\n\nHello, welcome to Downloads File Organizer! \n\nThis was a project built entirely using Python in order to help familarize myself with the os module.\nEnjoy!\n')
     action = input("Do you want to organize or undo? (Type 'organize' or 'undo'): ").lower()
     actions = {'organize': organize_downloads, 'undo': undo_last_moves}
     actions.get(action, lambda: print("Invalid choice!"))()
