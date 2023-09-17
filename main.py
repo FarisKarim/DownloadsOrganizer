@@ -37,6 +37,10 @@ def organize_downloads():
     backup_choice = input("Would you like to backup your Downloads folder before organizing? (y/n): ").lower()
     if backup_choice == 'y':
         backup_downloads()
+    elif backup_choice == 'n':
+        print('Okay, not backing up.')
+    else:
+        print('Invalid choice, not backing up. You can undo by running the program again and choosing "undo".')
 
     moves_made = []
     for filename in os.listdir(DOWNLOADS_PATH):
@@ -69,6 +73,7 @@ def undo_last_moves():
         print("No moves to undo!")
 
 if __name__ == "__main__":
+    print('Hello, welcome to Downloads File Organizer! \nThis was a project built entirely using Python in order to help familarize myself with the os module.\nEnjoy!\n')
     action = input("Do you want to organize or undo? (Type 'organize' or 'undo'): ").lower()
     actions = {'organize': organize_downloads, 'undo': undo_last_moves}
     actions.get(action, lambda: print("Invalid choice!"))()
